@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
 
-        <title>Summer Hacks :)</title>
+        <title>Visualisering fra "Andre Der Har Lånt"-data</title>
         <meta name="author" content="Rasmus Erik">
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -29,7 +29,7 @@
     </head>
 
     <body>
-        <img style="position: fixed; top:8px; left: 100%; margin-left: -56px;" src="solsort.png">
+        <img style="position: fixed; top:8px; left: 100%; margin-left: -150px;" src="dbc.png">
         <div id="timer" style="position: fixed; top: 8px; left: 8px;"></div>
         <script>
             var t0 = Date.now();
@@ -48,69 +48,87 @@
             <div class="slides">
 
                 <section>
-                <h2>Summer Hacks :)</h2>
-                <p><small>CopenhagenJS &nbsp; August 2013</small></p>
-                <br>
-                <p>Skolevej &nbsp; • &nbsp; BibGraph</p>
+                <h1 style="font-size: 300%">Visualisering <br><small>fra ADHL-data</small></h1>
+                <p style="font-size: 80%">BibTekKonf &nbsp; Oktober 2013</p>
                 <hr/>
-                <p>CoffeeScript • D3.js • Leaflet • LevelDB</p>
-                <hr/>
-                <p style="font-size: 100%"><a href="http://rasmuserik.com">Rasmus Erik .com</a></p>
+                <p style="font-size: 80%">Martin Møller Jensen (DBC)<br>Rasmus Erik Voel Jensen (<a href="http://solsort.dk">solsort.dk</a>)</p>
                 </section>
 
-                <section><h2>Skolevej</h2>
-                <p><small>Hammertime</small></p>
+                <!--
+                20 min inkl. spørgsmål
+
+                - Intro
+                  - ADHL (Andre der har lånt) indeholder statistik for millioner af co-lån.
+                  - Data mining og visualisering af disse, må kunne bruges til inspiration og navigation i materialer.
+                  - Demo af proof-of-concept, motivation og perspektiver. Relevansmål og implementering
+                - DEMO
+                  - prototype / proof-of-concept
+                - Motivation og perspektiver
+                  - ITD-thursday - Rasmus Erik hack
+                  - "genre" udenfor almindelig klassifikation
+                  - Værktøj til besvarelse af inspirationsspørgsmål
+                  - Gå på opdagelse mellem materialer online
+                - Relevansgraf for bøger
+                  - Vægtning: P(A|B)P(B|A)
+                  - Større-end-hukommelse databehandling
+                  - Graf-generering via traversering med deterministisk støj og pre-branching
+                - Teknik: node.js og HTML5
+                  - Backend-hack i node.js og LevelDB
+                  - Visualisering med D3.js, DOM og Canvas
+                  - Mobil usability og `touchend`-bug
+                  - Let indlejring med HTML5 data-attributter
+                - The END
+                  - http://dbc-bibgraph.solsort.com/ 
+                    (flyttes til http://labs.dbc.dk)
+                  - Spørgsmål
+                -->
+
+                <section><h2>Intro</h2>
                 <ul>
-                <li>Map route editor</li>
-                <li>Start frontend freelancing</li>
-                <li>Leaflet + Leaflet.draw</li>
-                <li>CoffeeScript</li>
-                </ul>
+                <li>ADHL (Andre der har lånt) indeholder statistik for millioner af co-lån.</li>
+                <li>Data mining og visualisering af disse, må kunne bruges til inspiration og navigation i materialer.</li>
+              </ul>
+              <p><strong>Indhold:</strong><br>Demo. Perspektiver. Relevansmål. Teknik.</p>
                 </section>
 
-                <section><h2>Skolevej</h2>
-                <p><small>Hammertime</small></p>
+                <section>
                 <h1>DEMO</h1>
+                <p>prototype / proof-of-concept</p>
                 </section>
 
-                <section><h2>BibGraph</h2>
-                <p><small>Dansk BiblioteksCenter</small></p>
+                <section><h2>Motivation og perspektiver</h2>
                 <ul>
-                <li>Got data: millions of library coloans</li>
-                <li>Calculate "relevance" between books</li>
-                <li>Visualise using D3.js, DOM and Canvas</li>
-                <li>Backend with node.js + LevelDB</li>
+                  <li>DBC ITD-thursday - Rasmus Erik hack</li>
+                  <li>"Genre" udenfor almindelig klassifkation</li>
+                  <li>Værktøj til besvarelse af inspirationsspørgsmål</li>
+                  <li>Gå på opdagelse i materialer online</li>
                 </ul>
                 </section>
 
-                <section><h2>BibGraph</h2>
-                <p><small>Dansk BiblioteksCenter</small></p>
-                <h1>DEMO</h1>
-                </section>
-
-                <section><h2>BibGraph details</h2>
-                <p><small>Dansk BiblioteksCenter</small></p>
-                <p>Link weigth <strong>P(A|B)P(B|A)</strong></p>
-                <hr>
-                <p>Pseudo-random (deterministic) graph traversal with noise and pre-branching </p>
-                <hr>
-                <p>Out-of-memory data processing and sorting</p>
-                <hr>
-                <p>Mobile DOM-change missing <strong>touchend</strong></p>
-                </section>
-
-                <section><h2>Questions</h2>
-                <br>
+                <section><h2>Relevansgraf for biblioteksmaterialer</h2>
                 <ul>
-                    <li>BibGraph heuristics/algorithm details?</li>
-                    <li>LevelDB - what/why?</li>
-                    <li>CoffeeScript - good and bad</li>
-                    <li>Co-hacking?</li>
-                    <li>...</li>
+                  <li>Vægtning: <strong>P(A|B)P(B|A)</strong> <br>- relevante frem for populære titler</li>
+                  <li>Graf-generering via traversering med deterministisk støj og pre-branching <br>- undgår lokale maksima</li>
+                  <li>Større-end-hukommelse data</li>
                 </ul>
-                <div align="right"><a href="http://rasmuserik.com">Rasmus Erik .com</a></div>
                 </section>
 
+                <section><h2 style="font-size: 190%">Visualiserings&shy;implementation</h2>
+                <ul>
+                  <li>Backend: hack med node.js og LevelDB, burde blive egentlig DBC web service</li>
+                  <li>Tegnet med D3.js, DOM og Canvas</li>
+                  <li>Mobil usability og `touchend`-bug</li>
+                  <li>Indlejring med HTML5 data-attributter</li>
+                </ul>
+                </section>
+
+                <section>
+                <p style="font-size: 150%"><strong>Konklusion:</strong>
+                <p> Værktøj til opdagelse, navigation og "genre" for biblioteksmaterialer, kan skabes ud fra lån-statistik.</p>
+                <p style="font-size:150%"><strong>Spørgsmål?</strong><br><br></p>
+                <p>Demo: <a href="http://dbc-bibgraph.solsort.com/">dbc-bibgraph.solsort.com</a> (flyttes&nbsp;til&nbsp;labs.dbc.dk)</p>
+
+                </section>
             </div>
 
         </div>
