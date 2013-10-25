@@ -45,6 +45,10 @@ body {
 .reveal h4,
 .reveal h5,
 .reveal h6 {
+  -webkit-hyphens: manual;
+  -moz-hyphens: manual;
+  hyphens: manual;
+
   margin: 0 0 20px 0;
   /*color: #002200;*/
   font-family: "League Gothic", Impact, sans-serif;
